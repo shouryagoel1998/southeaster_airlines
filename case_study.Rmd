@@ -1,0 +1,36 @@
+---
+title: "case study"
+author: "shourya goel"
+date: "18/12/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#define the test vector
+ltr <- c(9,8,3,9,7,8,9,6,7,8,9)
+
+#what is the range of the ltr vector
+range(ltr)
+
+#create a new vector with just the promoters
+#then calculate the length of the promoters vector
+promoters <- ltr[ltr>8]
+numPromoters <- length(promoters)
+
+#calculate the number of detractors by summing the elements that are less than 7
+detractorsTrueFalse <- ltr < 7
+numDetractors <- sum(detractorsTrueFalse)
+
+#calculate NPS based on the length of the ltr vector
+#and the number of promoters and detractors
+total <- length(ltr)
+nps <- (numPromoters/total-numDetractors/total)*100
+
+#output NPS
+nps
+```
+
